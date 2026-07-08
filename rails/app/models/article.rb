@@ -11,6 +11,30 @@ class Article < ApplicationRecord
 
   validates :slug, presence: true, uniqueness: true
 
+  # --- Getters incompletos (estado inicial) ----------------------------------
+  # Levantam NotImplementedError de propósito: no starter, ler `title`/`body`
+  # deve depender do locale, o que ainda não existe. Substitua estes métodos
+  # (ver OPÇÃO A ou B abaixo) para ler translations[I18n.locale] com fallback.
+  # Os setters ainda usam `super` (gravam a coluna crua) só para o app bootar;
+  # você também vai reimplementá-los para gravar em translations[locale].
+  def title
+    raise NotImplementedError, "TODO: retorne translations[I18n.locale]['title'] com fallback (nunca vazio)"
+  end
+
+  def body
+    raise NotImplementedError, "TODO: retorne translations[I18n.locale]['body'] com fallback (nunca vazio)"
+  end
+
+  def title=(value)
+    # TODO: grave em translations[I18n.locale]['title'] sem apagar os outros locales.
+    super
+  end
+
+  def body=(value)
+    # TODO: grave em translations[I18n.locale]['body'] sem apagar os outros locales.
+    super
+  end
+
   # === OPÇÃO A — acessores manuais sobre a coluna JSON `translations` ==========
   #
   # TODO: sobrescreva os getters/setters de :title e :body para usar
