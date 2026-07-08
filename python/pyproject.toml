@@ -1,0 +1,9 @@
+[project]
+name = "dare-lab-i18n-starter"
+version = "0.1.0"
+description = "Starter (Python/FastAPI) for the DARE lab: Make Content Bilingual with i18n"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
